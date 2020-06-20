@@ -19,6 +19,11 @@ class Downloader:
 
         print(f'Now downloading: \n{url}')
         print(f'Save in: \n{filepath}')
+
+    def print_finished_info(self):
+        """Print info about finished download."""
+
+        print("Finished!")
         print()
     
     def download_podcasts(self, urls_and_filepaths: List[tuple], 
@@ -29,6 +34,9 @@ class Downloader:
 
         for url, filepath in urls_and_filepaths:
             if log:
-                self.print_info()
+                self.print_info(url, filepath)
 
-            download_podcast(url, filepath)
+            self.download_podcast(url, filepath)
+
+            if log:
+                self.print_finished_info()
