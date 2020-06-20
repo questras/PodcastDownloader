@@ -14,7 +14,7 @@ class Downloader:
         with open(filepath, 'wb') as file:
             file.write(r.content)
     
-    def download_podcasts(urls_and_filepaths: List(tuple)):
+    def download_podcasts(urls_and_filepaths: List[tuple]):
         """Download podcasts in given urls and save them to 
         corresponding filepaths."""
 
