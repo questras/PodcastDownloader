@@ -2,6 +2,7 @@ import requests
 import os
 from typing import List
 
+
 class Downloader:
     """Class to download and save podcasts."""
 

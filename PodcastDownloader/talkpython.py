@@ -2,6 +2,7 @@ import bs4
 import requests
 from typing import List
 
+
 class TalkPythonPodcast:
     """Class to get urls and names of all episodes
     of Talk Python podcast."""
