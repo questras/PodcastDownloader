@@ -3,10 +3,12 @@ import os
 
 from PodcastDownloader.talkpython import TalkPythonPodcast
 from PodcastDownloader.downloader import Downloader
+from PodcastDownloader.porozmawiajmyoit import PorozmawiajmyOITPodcast
 
 
 podcasts = {
-    'talkpython': TalkPythonPodcast()
+    'talkpython': TalkPythonPodcast(),
+    'porozmawiajmyoit': PorozmawiajmyOITPodcast()
 }
 
 
