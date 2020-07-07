@@ -30,5 +30,5 @@ class TalkPythonPodcast:
                 name = url.split('/')[-1] + '.mp3'
 
                 urls_and_names.append((url, name))
-        
+
         return urls_and_names

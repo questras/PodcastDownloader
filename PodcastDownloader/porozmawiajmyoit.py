@@ -2,7 +2,7 @@ import bs4
 import requests
 from typing import List
 
-from .utils import request_has_errors, print_error
+from .utils import request_has_errors, print_error, print_info, print_success
 
 
 class PorozmawiajmyOITPodcast:
@@ -30,7 +30,6 @@ class PorozmawiajmyOITPodcast:
 
         return download_url
 
-
     def get_urls_and_names(self) -> List[tuple]:
         """Return  urls and names of all episodes
         of Porozmawiajmy o IT podcast that could be
@@ -46,9 +45,12 @@ class PorozmawiajmyOITPodcast:
         a_elements = soup.findAll('a', class_='podcast-button')
         podcast_urls = [element['href'] for element in a_elements]
         podcast_names = [url.split('/')[-2] + '.mp3' for url in podcast_urls]
+
+        print_info('Getting download urls.')
         download_urls = [self.get_download_url(url) for url in podcast_urls]
+        print_success('Download urls obtained.')
 
         # Remove all None values.
         download_urls = [url for url in download_urls if url]
-        
+
         return list(zip(download_urls, podcast_names))

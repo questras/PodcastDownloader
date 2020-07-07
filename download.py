@@ -6,7 +6,6 @@ from PodcastDownloader.downloader import Downloader
 from PodcastDownloader.porozmawiajmyoit import PorozmawiajmyOITPodcast
 from PodcastDownloader.utils import print_error
 
-
 podcasts = {
     'talkpython': TalkPythonPodcast(),
     'porozmawiajmyoit': PorozmawiajmyOITPodcast()
@@ -53,11 +52,11 @@ def main():
     name, path = parse_name_and_path()
 
     if not check_podcast_name(name):
-        print("Given podcast does not exist.")
+        print_error("Given podcast does not exist.")
         quit()
 
     if not check_path(path):
-        print("Given path is incorrect.")
+        print_error("Given path is incorrect.")
         quit()
 
     urls_and_names = podcasts[name].get_urls_and_names()
@@ -68,7 +67,7 @@ def main():
 
     urls_and_paths = [
         (url, os.path.join(path, name)) for (url, name) in urls_and_names
-        ]
+    ]
 
     downloader = Downloader()
     downloader.download_podcasts(urls_and_paths, log=True)

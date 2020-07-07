@@ -1,13 +1,21 @@
 import requests
 
-
 RED = '\033[91m'
+BLUE = '\033[94m'
 GREEN = '\033[92m'
 STOP = '\033[0m'
 
 
 def print_error(message):
     print(f'{RED}[ERROR]: {message}{STOP}')
+
+
+def print_info(message):
+    print(f'{BLUE}[INFO]: {message}{STOP}')
+
+
+def print_success(message):
+    print(f'{GREEN}[SUCCESS]: {message}{STOP}')
 
 
 def request_has_errors(request):
@@ -22,4 +30,3 @@ def request_has_errors(request):
         return True
 
     return False
-
