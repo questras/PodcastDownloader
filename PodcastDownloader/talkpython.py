@@ -2,6 +2,8 @@ import bs4
 import requests
 from typing import List
 
+from .utils import request_has_errors
+
 
 class TalkPythonPodcast:
     """Class to get urls and names of all episodes
@@ -15,7 +17,8 @@ class TalkPythonPodcast:
         urlbase = 'https://talkpython.fm'
 
         r = requests.get(episodes_url)
-        r.raise_for_status()
+        if request_has_errors(r):
+            return None
 
         soup = bs4.BeautifulSoup(r.text, features="html.parser")
         a_elements = soup.findAll('a')

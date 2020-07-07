@@ -4,6 +4,7 @@ import os
 from PodcastDownloader.talkpython import TalkPythonPodcast
 from PodcastDownloader.downloader import Downloader
 from PodcastDownloader.porozmawiajmyoit import PorozmawiajmyOITPodcast
+from PodcastDownloader.utils import print_error
 
 
 podcasts = {
@@ -60,6 +61,11 @@ def main():
         quit()
 
     urls_and_names = podcasts[name].get_urls_and_names()
+
+    if urls_and_names is None:
+        print_error("Download failed.")
+        quit()
+
     urls_and_paths = [
         (url, os.path.join(path, name)) for (url, name) in urls_and_names
         ]
