@@ -8,6 +8,9 @@ from .utils import print_error, print_info, print_success
 class Downloader:
     """Class to download and save podcasts."""
 
+    def __init__(self):
+        pass
+
     def download_podcast(self, url: str, filepath: str):
         """Download podcast in given url and save it to 
         given filepath."""

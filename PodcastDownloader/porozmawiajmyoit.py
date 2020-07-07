@@ -9,6 +9,9 @@ class PorozmawiajmyOITPodcast:
     """Class to get urls and names of all episodes
     of Porozmawiajmy o IT podcast."""
 
+    def __init__(self):
+        pass
+
     def get_download_url(self, podcast_url: str) -> str:
         """Get podcast download link from given podcast url or None
         if request failed.

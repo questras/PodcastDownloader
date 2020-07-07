@@ -9,6 +9,9 @@ class TalkPythonPodcast:
     """Class to get urls and names of all episodes
     of Talk Python podcast."""
 
+    def __init__(self):
+        pass
+
     def get_urls_and_names(self) -> List[tuple]:
         """Return  urls and names of all episodes
         of Talk Python podcast"""
