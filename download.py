@@ -46,7 +46,9 @@ def check_path(path: str) -> bool:
     return os.path.isdir(path)
 
 
-if __name__ == "__main__":
+def main():
+    """Main program function."""
+
     name, path = parse_name_and_path()
 
     if not check_podcast_name(name):
@@ -65,5 +67,6 @@ if __name__ == "__main__":
     downloader = Downloader()
     downloader.download_podcasts(urls_and_paths, log=True)
 
-    
-    
+
+if __name__ == "__main__":
+    main()
