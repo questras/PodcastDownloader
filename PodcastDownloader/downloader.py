@@ -2,7 +2,7 @@ import requests
 import os
 from typing import List
 
-from .utils import print_error, print_info, print_success
+from .utils import print_error, print_info, print_success, request_has_errors
 
 
 class Downloader:
@@ -15,8 +15,10 @@ class Downloader:
         """Download podcast in given url and save it to 
         given filepath."""
 
-        # todo: add error handling
         r = requests.get(url, allow_redirects=True)
+        if request_has_errors(r):
+            print_error(f'Could not download {url}')
+            return
 
         with open(filepath, 'wb') as file:
             file.write(r.content)
